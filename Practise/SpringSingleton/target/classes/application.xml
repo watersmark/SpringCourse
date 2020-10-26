@@ -18,7 +18,8 @@
 
     <!--  Bean musicPlayer  -->
     <bean id="musicPlayer"
-          class="useClass.MusicPlayer">
+          class="useClass.MusicPlayer"
+          scope="prototype">
         <constructor-arg ref="musicBean"/>
         <property name="compos" value="${name}"/>
     </bean>
