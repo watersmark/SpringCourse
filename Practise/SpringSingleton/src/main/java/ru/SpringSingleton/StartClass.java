@@ -10,13 +10,11 @@ public class StartClass {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
 
         MusicPlayer player1 = context.getBean("musicPlayer", MusicPlayer.class);
-        MusicPlayer player2 = context.getBean("musicPlayer", MusicPlayer.class);
-        player2.getCompos();
-
-        player1.setCompos("Corsica");
-
         player1.getCompos();
-        player2.getCompos();
+        System.out.println(player1.getMusic().getSongs());
+
+        System.out.println("End program");
+
 
     }
 }

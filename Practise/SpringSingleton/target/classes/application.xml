@@ -13,13 +13,20 @@
 
     <!--  Bean music  -->
     <bean id="musicBean"
-          class="useClass.RockMusic">
+          class="useClass.ClassicMusic"
+          factory-method="createClassicalMusic"
+          init-method="init"
+          destroy-method="dest"
+          >
+
     </bean>
 
     <!--  Bean musicPlayer  -->
     <bean id="musicPlayer"
           class="useClass.MusicPlayer"
-          scope="prototype">
+          init-method="doInMyInit"
+          destroy-method="doInMyDestroy">
+
         <constructor-arg ref="musicBean"/>
         <property name="compos" value="${name}"/>
     </bean>
