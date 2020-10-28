@@ -1,30 +1,22 @@
 package Start;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("mus")
 public class MusicPlayer {
-    private Music music;
+    private Music music1;
+    private Music music2;
 
-    @Autowired
-    public MusicPlayer(ClassicMusic music) {
-       this.music = music;
-       System.out.println(this.music.getSongs());
-    }
 
-    public Music getMusic() {
-        return music;
-    }
-
-    @Autowired
-    public void setMusic(RockMusic musics) {
-        this.music = musics;
-        System.out.println(this.music.getSongs());
+    public MusicPlayer(@Qualifier("rockMusic") Music music1, @Qualifier("classicMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
     }
 
     public void playMusic() {
-        System.out.println(music.getSongs());
+        System.out.println(music1.getSongs());
+        System.out.println(music2.getSongs());
     }
-
 }
