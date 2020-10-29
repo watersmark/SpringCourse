@@ -5,6 +5,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
+import java.util.Arrays;
+import java.util.List;
+
 @Configuration
 @ComponentScan("ru.main")
 public class SpringConfiguration {
@@ -42,4 +45,10 @@ public class SpringConfiguration {
         return new MusicList(rockMusic(), classicalMusic(), popMusic());
     }
 
+
+    @Bean
+    public List<Music> musicLists() {
+        // Этот лист неизменяемый (immutable)
+        return Arrays.asList(classicalMusic(), rockMusic(), popMusic());
+    }
 }
