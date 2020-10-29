@@ -24,11 +24,22 @@ public class SpringConfiguration {
     @Bean
     @Scope("prototype")
     public  MusicPlayer musicPlayer(){
-        return new MusicPlayer(rockMusic(), classicalMusic());
+        return new MusicPlayer(musicList());
     }
 
     @Bean
     public Computer computer(){
         return new Computer(musicPlayer());
     }
+
+    @Bean
+    public PopMusic popMusic(){
+        return new PopMusic();
+    }
+
+    @Bean
+    public MusicList musicList(){
+        return new MusicList(rockMusic(), classicalMusic(), popMusic());
+    }
+
 }

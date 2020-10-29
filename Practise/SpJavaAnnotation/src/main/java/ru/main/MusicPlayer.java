@@ -5,25 +5,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+
 @Component("musPlay")
 @Scope("prototype")
 public class MusicPlayer {
-    private Music music;
-    private Music music1;
+    private ArrayList<Music> list = new ArrayList<Music>();
 
     @Autowired
-    public MusicPlayer(@Qualifier("rock") Music music, @Qualifier("classic") Music music1) {
-        this.music = music;
-        this.music1 = music1;
+    public MusicPlayer(MusicList list) {
+        this.list = list.getList();
     }
 
     public void playMusic() {
-        System.out.println(music.getSongs());
-        System.out.println(music1.getSongs());
+        for(Music mus : list){
+            System.out.println(mus.getSongs());
+        }
     }
-
-    public void initMethod(){
-
-    }
-
 }
