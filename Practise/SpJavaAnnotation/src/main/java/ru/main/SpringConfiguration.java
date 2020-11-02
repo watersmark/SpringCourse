@@ -14,7 +14,6 @@ public class SpringConfiguration {
 
     @Bean
     @Scope("prototype")
-
     public ClassicalMusic classicalMusic(){
         return new ClassicalMusic();
     }
