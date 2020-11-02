@@ -4,16 +4,14 @@ import Classes.HelloWorldMessageProvider;
 import Classes.StandardOutMessageRenderer;
 import Interface.MessageProvider;
 import Interface.MessageRender;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Start {
     public static void main(String[] args) {
 
-        MessageRender render = new StandardOutMessageRenderer();
-        MessageProvider provider = new HelloWorldMessageProvider();
-
-        render.setMessageProvider(provider);
-        render.render();
-
-
+        ApplicationContext context = new ClassPathXmlApplicationContext("application.xml");
+        MessageRender rend = context.getBean("render", StandardOutMessageRenderer.class);
+        rend.render();
     }
 }
