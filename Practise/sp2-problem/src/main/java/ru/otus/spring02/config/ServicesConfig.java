@@ -9,7 +9,8 @@ import ru.otus.spring02.service.PersonService;
 import ru.otus.spring02.service.PersonServiceImpl;
 
 @Configuration
-@ComponentScan
+@ComponentScan(basePackages = "ru.otus.spring02.service")
+@Import(DaoConfig.class)
 public class ServicesConfig {
 
     @Bean
