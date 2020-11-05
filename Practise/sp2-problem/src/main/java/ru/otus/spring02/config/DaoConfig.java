@@ -7,7 +7,6 @@ import ru.otus.spring02.dao.PersonDao;
 import ru.otus.spring02.dao.PersonDaoSimple;
 
 @Configuration
-@ComponentScan(basePackages = "ru.otus.spring02.dao")
 public class DaoConfig {
 
     @Bean
